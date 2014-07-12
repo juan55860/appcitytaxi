@@ -1,0 +1,26 @@
+{
+	"state": "false",
+	"errors": {
+		"id": [
+			"El campo id es requerido."
+		],
+		"name": [
+			"El campo name es requerido."
+		],
+		"lastname": [
+			"El campo lastname es requerido."
+		],
+		"rh": [
+			"El campo rh es requerido."
+		],
+		"active": [
+			"El campo active es requerido."
+		],
+		"password": [
+			"El campo password es requerido."
+		],
+		"phone": [
+			"El campo phone es requerido."
+		]
+	}
+}

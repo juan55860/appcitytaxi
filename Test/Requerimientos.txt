@@ -1,0 +1,81 @@
+Requerimientos prueba.
+
+Sistema de registro para personas. 
+
+Toda la parte del Front-end se encuentra implementada, la idea es obtener un resultado similar a la imagen result.png que se encuentra en la raiz del proyecto, cuando el usuario no completa de manera correcta los campos.
+
+en este caso el servidor responde un json asi.
+
+{
+	state: "false"
+	errors: {
+		id: [
+			"El campo id es requerido."
+		]
+		name: [
+			"El campo name es requerido."
+		]
+		lastname: [
+			"El campo lastname es requerido."
+		]
+		rh: [
+			"El campo rh es requerido."
+		]
+		active: [
+			"El campo active es requerido."
+		]
+		password: [
+			"El campo password es requerido."
+		]
+		phone: [
+			"El campo phone es requerido."
+		]
+	}
+}
+
+esta respuesta se basa en las siguientes reglas.
+
+[
+            'id'       => 'required|unique:drivers,id',
+            'name'     => 'required',
+            'lastname' => 'required',
+            'rh'       => 'required|in:A+,A-,B+,B-,AB+,AB-,O+,O-',
+            'active'   => 'required|in:true,false',
+            'password' => 'required|numeric',
+            'phone'    => 'required|numeric'
+        ];
+
+si desean hacer la prueba de como se ve en la imagen. se debe ir al archivo /assets/js/index.js
+
+y cambiar las lineas 46 a 50 por 
+
+$http({
+    method : 'GET',
+    url    : './erros.json',
+    data   : $scope.driver
+}).
+
+si los datos son correctos el registro se debera almacenar en una base de datos mysql y el servidor responder.
+
+{
+	state: "true",
+	person: {
+		id: "1234567890",
+		name: "Pepito" ,
+		lastname: "Perez",
+		rh: "O+",
+		active: 1,
+		phone: "3007127272"
+	}
+}
+
+en la linea 48 index.js se encuentra la url que usted debe modificar para su ruta del servidor.
+
+tener en cuenta que el campo password debe ser oculto y estar cifrado en la base de datos.
+
+________
+
+
+se tendra en cuenta 
+	manejo de expresiones regulares.
+
